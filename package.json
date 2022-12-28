@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "13.1.1",
@@ -15,6 +16,13 @@
   },
   "devDependencies": {
     "eslint": "8.30.0",
-    "eslint-config-next": "13.1.1"
+    "eslint-config-next": "13.1.1",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "2.8.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
