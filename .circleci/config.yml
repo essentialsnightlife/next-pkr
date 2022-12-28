@@ -6,9 +6,6 @@ jobs:
       - image: cimg/node:19.3.0
     steps:
       - checkout
-#      - run:
-#          name: Update Yarn
-#          command: "sudo chown -R $USER /usr/local/lib/node_modules && npm install --global yarn"
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
