@@ -6,9 +6,9 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout
-      - run:
-          name: Update Yarn
-          command: "sudo chown -R $USER /usr/local/lib/node_modules && npm install --global yarn"
+#      - run:
+#          name: Update Yarn
+#          command: "sudo chown -R $USER /usr/local/lib/node_modules && npm install --global yarn"
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
