@@ -1,5 +1,7 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import AWS from "aws-sdk";
 import * as uuid from "uuid";
+
 const docClient = new AWS.DynamoDB.DocumentClient({
   accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY,
   secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
@@ -28,7 +30,10 @@ async function createItem() {
   }
 }
 
-export default async function handler(event, res) {
+export default async function handler(
+  event: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
     await createItem();
     return res
