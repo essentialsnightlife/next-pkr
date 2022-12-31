@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { handler } from "./api/games/create";
+import createHandler from "./api/games/create";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to Next.js!</h1>
         <h1 className={styles.title}>
-          Add a <button onClick={handler}>New Poker result</button>
+          Add a <button onClick={createHandler}>New Poker result</button>
         </h1>
 
         <p className={styles.description}>

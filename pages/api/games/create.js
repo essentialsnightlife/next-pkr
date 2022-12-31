@@ -11,7 +11,7 @@ const params = {
   Item: {
     id: uuid.v1(), // A unique uuid
     locationId: 100,
-    buyIn: 15,
+    buyIn: 12,
     createdAt: Date.now(), // Current Unix timestamp
   },
 };
@@ -28,11 +28,14 @@ async function createItem() {
   }
 }
 
-export const handler = async (event) => {
+export default async function handler(event, res) {
   try {
     await createItem();
-    return { body: "Successfully added new game!" };
+    return res
+      .status(201)
+      .json({ ...params.Item, body: "Successfully added new game!" });
   } catch (err) {
+    res.status(500).json({ error: "Failed to add new game" });
     return { error: err };
   }
-};
+}
