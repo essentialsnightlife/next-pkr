@@ -16,7 +16,10 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to Next.js!</h1>
         <h1 className={styles.title}>
-          Add a <button onClick={createHandler}>New Poker result</button>
+          Add a{" "}
+          <button onClick={async () => await createHandler}>
+            New Poker result
+          </button>
         </h1>
 
         <p className={styles.description}>
