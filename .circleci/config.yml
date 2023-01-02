@@ -2,6 +2,8 @@ version: 2.1
 #branches:
 #  only:
 #    - main
+orbs:
+  aws-cli: circleci/aws-cli@3.1
 jobs:
   build:
     working_directory: ~/repo
@@ -12,9 +14,6 @@ jobs:
       - run:
             name: Install Java
             command: 'sudo apt-get update && sudo apt-get install default-jre default-jdk'
-      - run:
-          name: Install AWS CLI
-          command: 'sudo pip install awsebcli --upgrade'
       - run:
           name: Setup Container
           command: |
