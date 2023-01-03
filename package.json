@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "test": "jest",
-    "test:ci": "jest --ci"
+    "test": "jest --maxWorkers=2",
+    "test:ci": "jest --ci --maxWorkers=2"
   },
   "dependencies": {
     "@babel/preset-react": "^7.18.6",
