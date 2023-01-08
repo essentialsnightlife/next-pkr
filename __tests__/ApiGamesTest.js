@@ -25,9 +25,7 @@ const testDdb = async () => {
     });
 };
 
-testDdb().then(function (result) {
-  console.log(result); // "Some User token"
-});
+console.log(testDdb().then((data) => console.log(data)));
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
