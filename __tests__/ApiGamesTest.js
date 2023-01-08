@@ -16,16 +16,16 @@ const config = {
 const ddb = new DocumentClient(config);
 console.log("hiiiiii");
 
-const testDdb = async () => {
-  await ddb
-    .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
-    .promise()
-    .then((data) => {
-      return data;
-    });
+const testDdb = () => {
+  return ddb
+    .put({
+      TableName: "testPkrResults",
+      Item: { id: "1-2", locationId: 200, buyIn: 12, createdAt: Date.now() },
+    })
+    .promise();
 };
-
-console.log(testDdb().then((data) => console.log(data)));
+let testOutput = testDdb();
+console.log(testOutput);
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
