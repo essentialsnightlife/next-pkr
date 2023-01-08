@@ -23,7 +23,7 @@ const testDdb = async () => {
     .then((data) => console.log(data));
 };
 
-console.log(testDdb());
+testDdb().then((data) => console.log(data));
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
