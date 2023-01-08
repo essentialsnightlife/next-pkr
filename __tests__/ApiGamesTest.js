@@ -19,6 +19,7 @@ console.log(
   ddb
     .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
     .promise()
+    .then((data) => console.log(data))
 );
 
 describe("record new poker result", () => {
