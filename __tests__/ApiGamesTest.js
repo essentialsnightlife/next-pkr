@@ -20,10 +20,14 @@ const testDdb = async () => {
   await ddb
     .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
     .promise()
-    .then((data) => console.log(data));
+    .then((data) => {
+      return data;
+    });
 };
 
-testDdb().then((data) => console.log(data));
+testDdb().then(function (result) {
+  console.log(result); // "Some User token"
+});
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
