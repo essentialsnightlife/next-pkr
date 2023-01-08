@@ -15,12 +15,15 @@ const config = {
 };
 const ddb = new DocumentClient(config);
 console.log("hiiiiii");
-console.log(
-  ddb
+
+const testDdb = async () => {
+  await ddb
     .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
     .promise()
-    .then((data) => console.log(data))
-);
+    .then((data) => console.log(data));
+};
+
+console.log(testDdb());
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
