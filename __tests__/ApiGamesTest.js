@@ -24,7 +24,7 @@ const testDdb = () => {
     })
     .promise();
 };
-let testOutput = testDdb();
+let testOutput = testDdb().then((r) => console.log(r));
 console.log(testOutput);
 
 describe("record new poker result", () => {
