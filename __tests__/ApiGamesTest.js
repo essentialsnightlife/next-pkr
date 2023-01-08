@@ -18,10 +18,7 @@ console.log("hiiiiii");
 
 const testDdb = () => {
   return ddb
-    .put({
-      TableName: "testPkrResults",
-      Item: { id: "1-2", locationId: 200, buyIn: 12, createdAt: Date.now() },
-    })
+    .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
     .promise();
 };
 let testOutput = testDdb().then((r) => console.log(r));
