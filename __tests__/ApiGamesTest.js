@@ -4,19 +4,29 @@
 
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
 
-const isTest = process.env.JEST_WORKER_ID;
-const config = {
-  convertEmptyValues: true,
-  ...(isTest && {
-    endpoint: "localhost:8000",
-    sslEnabled: false,
-    region: "local-env",
-  }),
-};
-const ddb = new DocumentClient(config);
+// const isTest = process.env.JEST_WORKER_ID;
+// const config = {
+//   convertEmptyValues: true,
+//   ...(isTest && {
+//     endpoint: "localhost:8000",
+//     sslEnabled: false,
+//     region: "local-env",
+//   }),
+// };
+// const ddb = new DocumentClient(config);
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
+    const isTest = process.env.JEST_WORKER_ID;
+    const config = {
+      convertEmptyValues: true,
+      ...(isTest && {
+        endpoint: "localhost:8000",
+        sslEnabled: false,
+        region: "local-env",
+      }),
+    };
+    const ddb = new DocumentClient(config);
     await ddb
       .put({
         TableName: "testPkrResults",
