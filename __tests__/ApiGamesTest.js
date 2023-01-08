@@ -15,7 +15,11 @@ const config = {
 };
 const ddb = new DocumentClient(config);
 console.log("hiiiiii");
-console.log(process.env.JEST_WORKER_ID);
+console.log(
+  ddb
+    .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
+    .promise()
+);
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {
