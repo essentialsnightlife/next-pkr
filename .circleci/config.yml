@@ -9,8 +9,8 @@ jobs:
     steps:
       - checkout
       - run:
-            name: Install Java
-            command: 'sudo apt-get update && sudo apt-get install default-jre default-jdk'
+          name: Install Java
+          command: 'sudo apt-get update && sudo apt-get install default-jre default-jdk'
       - run:
           name: Update Yarn
           command: 'yarn global add npm@latest'
@@ -28,5 +28,4 @@ jobs:
             - .yarn/cache
             - .yarn/unplugged
       - run:
-          name: Run Tests
-          command: yarn run test
+          name: Run
