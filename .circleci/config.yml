@@ -8,11 +8,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Download DynamoDB
-        command: wget -O - http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz | tar xz
+          name: Download DynamoDB
+          command: wget -O - http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz | tar xz
       - run:
-        name: Run DynamoDB
-        command: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -inMemory
+          name: Run DynamoDB
+          command: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -inMemory
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
