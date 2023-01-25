@@ -11,6 +11,9 @@ jobs:
           name: Install Java
           command: 'sudo apt-get update && sudo apt-get install default-jre default-jdk'
       - run:
+          name: Update Yarn
+          command: 'yarn global add npm@latest'
+      - run:
           name: Download DynamoDB
           command: wget -O - http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz | tar xz
       - run:
