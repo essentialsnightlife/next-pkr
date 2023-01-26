@@ -18,6 +18,9 @@ jobs:
           command: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -inMemory
           background: true
       - run:
+          name: Configure Jest
+          command: cp jest-dynamodb-config.js ./node_modules/jest-dynamodb/config.js
+      - run:
           name: Update Yarn
           command: 'yarn global add npm@latest'
       - restore_cache:
