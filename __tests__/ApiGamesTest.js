@@ -14,15 +14,6 @@ const config = {
   }),
 };
 const ddb = new DocumentClient(config);
-console.log("hiiiiii");
-
-const testDdb = () => {
-  return ddb
-    .get({ TableName: "testPkrResults", Key: { id: "1-2", locationId: 200 } })
-    .promise();
-};
-let testOutput = testDdb().then((r) => console.log(r));
-console.log(testOutput);
 
 describe("record new poker result", () => {
   it("should insert new poker result into the table", async () => {

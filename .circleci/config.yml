@@ -38,4 +38,4 @@ jobs:
             - .yarn/unplugged
       - run:
           name: Run
-          command: yarn run test
+          command: yarn run test:ci
