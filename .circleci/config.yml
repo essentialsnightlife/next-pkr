@@ -36,3 +36,4 @@ jobs:
       - run:
           name: Run
           command: yarn run test:ci
+          timeout: 20000
